@@ -1,67 +1,70 @@
 import { planets } from '/assets/planets.js'
 
-// console.log('I am JavaScript on your page!')
 
-let mainArea = document.querySelector('main')
+function displayPlanets(planets) {
+  const mainArea = document.querySelector('main')
+  // removes everything from main
+  mainArea.innerHTML = null
+  planets.forEach(function (planet) {
+    const planetsDiv = document.createElement('div')
+    let name = document.createElement('h1')
+    let terrain = document.createElement('p')
+    let pic = document.createElement('img')
 
-planets.forEach(function(planet) {
-  const planetsDiv = document.createElement('div')
-  planetsDiv.innerText = planet.name
-  mainArea.appendChild(planetsDiv)
+
+    planetsDiv.appendChild(name)
+    planetsDiv.appendChild(terrain)
+    planetsDiv.appendChild(pic)
+
+    let planNum = getPlanNumber(planet.url)
+
+    name.innerText = planet.name
+    terrain.innerText = planet.terrain
+    pic.src = `https://starwars-visualguide.com/assets/img/planets/${planNum}.jpg`
+
+
+    mainArea.appendChild(planetsDiv)
+
+  })
+}
+
+
+function getPlanNumber(planURL) {
+  let end = planURL.lastIndexOf('/')
+  let planID = planURL.substring(end - 2, end)
+  if (planID.indexOf('/') !== -1) {
+    return planID.slice(1, 2)
+  } else {
+    return planID
+  }
+}
+
+// show all planets on page load
+displayPlanets(planets)
+
+function displayPlanetsWithUnknowPopulation() {
+  const planetsWithUnknowPopulation = planets.filter(function(planet) {
+    return planet.population === "unknown"
+  })
+  return planetsWithUnknowPopulation
+}
+
+function displayPlanetsWithUnknowGravity() {
+  const planetsWithUnknowGravity = planets.filter(function(planet) {
+    return planet.gravity === "unknown"
+  })
+  return planetsWithUnknowGravity
+}
+
+
+const populationUnknownButton = document.getElementById('unknown_population');
+populationUnknownButton.addEventListener('click', function() {
+  const filteredPlanets = displayPlanetsWithUnknowPopulation()
+  displayPlanets(filteredPlanets)
 })
 
-
-
-// films.forEach(function (film) {
-//   let filmDiv = document.createElement('div')
-//   let title = document.createElement('h1')
-//   let crawl = document.createElement('p')
-
-//   filmDiv.appendChild(title)
-//   filmDiv.appendChild(crawl)
-
-//   title.textContent = film.title
-//   crawl.innerText = film.opening_crawl.
-
-//   console.log(mainArea)
-
-//   mainArea.appendChild(filmDiv)
-// })
-
-// people.forEach(function (person) {
-//   let personDiv = document.createElement('div')
-//   let name = document.createElement('h1')
-//   let gender = document.createElement('h3')
-//   let pic = document.createElement('img')
-
-
-//   personDiv.appendChild(name)
-//   personDiv.appendChild(gender)
-//   personDiv.appendChild(pic)
-
-//   let charNum = getCharNumber(person.url)
-
-
-//   name.textContent = person.name
-//   gender.textContent = person.gender
-//   pic.src = `https://starwars-visualguide.com/assets/img/characters/${charNum}.jpg`
-
-//   mainArea.appendChild(personDiv)
-// })
-
-// function getCharNumber(charURL) {
-//   let end = charURL.lastIndexOf('/')
-//   let charID = charURL.substring(end - 2, end)
-//   if (charID.indexOf('/') !== -1) {
-//     return charID.slice(1, 2)
-//   } else {
-//     return charID
-//   }
-// }
-
-// const maleCharacters = people.filter(person => person.gender === 'male')
-// console.log(maleCharacters)
-// const femaleCharacters = people.filter(person => person.gender === 'female')
-// console.log(femaleCharacters)
-
-
+const gravityUnknownButton = document.getElementById('unknown_gravity');
+gravityUnknownButton.addEventListener('click', function() {
+  const filteredPlanets = displayPlanetsWithUnknowGravity()
+  displayPlanets(filteredPlanets)
+})
