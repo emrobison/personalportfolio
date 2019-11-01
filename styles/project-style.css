@@ -28,7 +28,7 @@ header {
 
 button {
     padding: 20px;
-    font-size:25px;
+    font-size:23px;
     border-radius: 10px;
     background-color: black;
     color: olivedrab;
@@ -40,7 +40,7 @@ div {
     display: flex;
     flex-direction: column;
     align-items: center;
-    border:2px solid slategray;
+    border:3px solid slategray;
     padding: 30px;
     
 
