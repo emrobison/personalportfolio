@@ -14,7 +14,7 @@ main {
     padding:100px;
     border: solid navy;
     background-color: rgb(50, 50, 117);
-    border-radius: 62px;
+    border-radius: 60px;
     color:rgb(49, 128, 128);
 
 }
@@ -22,14 +22,14 @@ main {
 header {
     display: flex;
     justify-content:center;
-    margin-bottom: 22px;
+    margin-bottom: 20px;
 
 }
 
 button {
     padding: 20px;
     font-size:21px;
-    border-radius: 12px;
+    border-radius: 11px;
     background-color: black;
     color: olivedrab;
     visibility: visible;
