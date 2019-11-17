@@ -28,8 +28,8 @@ header {
 
 button {
     padding: 20px;
-    font-size:22px;
-    border-radius: 12px;
+    font-size:20px;
+    border-radius: 11px;
     background-color: black;
     color: olivedrab;
     visibility: visible;
@@ -41,7 +41,7 @@ div {
     flex-direction: column;
     align-items: center;
     border:5px solid slategray;
-    padding: 30px;
+    padding: 28px;
     
 
 }
