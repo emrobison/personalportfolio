@@ -1,4 +1,4 @@
-/* h1 {
+h1 {
     color:rgb(54, 187, 187);
     font-family: 'Monoton', cursive;
 }
@@ -12,7 +12,7 @@ main {
     grid-gap: 400px; 
     margin: 0 auto;
     padding:100px;
-    border: solid slateblue;
+    border: solid navy;
     background-color: rgb(50, 50, 117);
     border-radius: 61px;
     color:rgb(49, 128, 128);
@@ -27,9 +27,9 @@ header {
 }
 
 button {
-    padding: 22px;
-    font-size:25px;
-    border-radius: 10px;
+    padding: 20px;
+    font-size:20px;
+    border-radius: 11px;
     background-color: black;
     color: olivedrab;
     visibility: visible;
@@ -40,8 +40,8 @@ div {
     display: flex;
     flex-direction: column;
     align-items: center;
-    border:2px solid slategray;
-    padding: 30px;
+    border:5px solid slategray;
+    padding: 28px;
     
 
 }
@@ -49,4 +49,4 @@ div {
 img {
     max-width: 180px;
     max-height: 180px;
-} */
+}
