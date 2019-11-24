@@ -1,0 +1,161 @@
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  height: 100%;
+  font-family: 'Trade Winds', cursive;
+}
+
+body {
+  min-height: 100%;
+}
+
+main {
+  margin: 200;
+  border: solid slategray;
+  background-color: rgb(133, 189, 21);
+  border-radius: 50px;
+  color: black;
+}
+
+.cards-all {
+  display: grid;
+  grid-template-columns: 25% 25% 25% 25%;
+  row-gap: 50px;
+  padding: 100px;
+  min-height: 100vh;
+  overflow: auto;
+}
+
+.card {
+  width: 18vw;
+  height: 290px;
+  transition: transform 1s;
+  transform-style: preserve-3d;
+  cursor: pointer;
+  position: relative;
+  grid-column-start: 0;
+  background-color: steelblue;
+  border: solid black;
+  box-shadow: 5px 10px;
+  
+}
+
+.card.is-flipped {
+  transform: rotateY(180deg);
+}
+
+.face_card {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  /* line-height: 0px; */
+  color: whitesmoke;
+  text-align: center;
+  font-weight: bold;
+  font-size: 20px;
+  backface-visibility: hidden;
+}
+
+.face_card img {
+  height: 200px;
+}
+
+.face_card--front {
+  /* background: red; */
+  /* border: solid black; */
+  /* border-width: 0px; */
+}
+
+.face_card--back {
+  /* background: blue; */
+  /* border: solid black; */
+  transform: rotateY(180deg);
+  font-size:13px;
+ 
+}
+
+/* .img {
+      width: 200px;
+      height:200px;
+  } */
+
+.add-new-card {
+  width: 18vw;
+  height: 290px;
+  transition: transform 1s;
+  transform-style: preserve-3d;
+  cursor: pointer;
+  position: relative;
+  background-color: steelblue;
+  border: solid black;
+  box-shadow: black 5px 10px;
+  color: whitesmoke;
+  text-align: center;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.button {
+  float: center;
+  margin-top: 120px;
+  box-shadow: inset 0px 1px 0px 0px #caefab;
+  background: linear-gradient(to bottom, #77d42a 5%, #5cb811 100%);
+  background-color: #77d42a;
+  border-radius: 42px;
+  border: 3px solid #268a16;
+  color: #306108;
+  font-size: 28px;
+  font-weight: bold;
+  padding: 9px 16px;
+  text-shadow: 0px 0px 0px #aade7c;
+}
+
+.button:hover {
+  background: linear-gradient(to bottom, #5cb811 5%, #77d42a 100%);
+  background-color: #5cb811;
+}
+
+button:active {
+  position: relative;
+  top: 1px;
+}
+
+.form-view {
+  background-color: rgb(207, 207, 1);
+  margin-top: 150px;
+  margin-right:200px;
+  margin-left: 200px;
+  padding:10px;
+}
+
+.form-view label {
+  display:block;
+  /* padding:18px; */
+}
+
+.form-view span {
+  display: block;
+  padding: 5px;
+
+}
+
+.form-view fieldset {
+  border: 3px solid black;
+}
+
+#form-button {
+  margin-top: 10px;
+  font-size: 12px;
+  padding: 8px 15px;
+  
+
+}
+
+
+.prevent-collapsing {
+  clear: both;
+}
+
