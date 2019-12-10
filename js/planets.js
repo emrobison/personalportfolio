@@ -30,8 +30,10 @@ function displayPlanets(planets) {
 
 
 function getPlanNumber(planURL) {
+  //examples of let, lets can be changed const cant.
   let end = planURL.lastIndexOf('/')
   let planID = planURL.substring(end - 2, end)
+  //another conditional and value comparison, comparing two values with a conditional(if-else).
   if (planID.indexOf('/') !== -1) {
     return planID.slice(1, 2)
   } else {
@@ -44,6 +46,7 @@ displayPlanets(planets)
 
 function displayPlanetsWithUnknowPopulation() {
   const planetsWithUnknowPopulation = planets.filter(function(planet) {
+    //triple equals is a comparison
     return planet.population === "unknown"
   })
   return planetsWithUnknowPopulation

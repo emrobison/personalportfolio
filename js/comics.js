@@ -1,34 +1,13 @@
+// imported content (ES6 import)
+//comicCharacters is an array of custom objects
 import { comicCharacters } from '/assets/comic-characters.js'
 
-// async function getComicData(url) {
-//   try {
-//     const response = await fetch(url, { mode: 'no-cors' })
-//     const data = await response.json()
-//     return data
-//   } catch (error) {
-//     console.error(error)
-//   }
-// }
-
-// let characters = []
-
-// const theData = getComicData('https://comicvine.gamespot.com/api/characters/?api_key=ab698d57770cddfc23a431c747fa8d7c04de0dd7&format=json&limit=25')
-//   .then((data) => {
-//     console.log(data.results)
-//     for (const character of data.results) {
-//       getComicData(character.api_detail_url)
-//         .then((characterData) => {
-//           characters.push(characterData.results)
-//           console.log(characterData.results)
-//         })
-//     }
-//   })
-
-// let mainArea = document.querySelector('main')
+// proper use of const variables -const because they aren't going to change.
 const mainArea = document.querySelector('.cards-all')
 const addCardButton = document.getElementById('add-card-button')
 const formView = document.querySelector('.form-view')
 
+//ES6 arrow function, as well as dot notation to access the method.  (method belongs to an object)
 addCardButton.addEventListener('click', () => {
   const cards = mainArea.childNodes
   cards.forEach(function(card) {
@@ -39,7 +18,10 @@ addCardButton.addEventListener('click', () => {
 })
 
 function showAllCards() {
+  //Example of an Array: childNodes is an array of the existing html cards.
   const cards = mainArea.childNodes
+  //Array looping: for each is an an array method for looping through an array.
+  //Manipulating Data: this is also manipulating the data here,changing the property of hidden for each card object inside of cards.
   cards.forEach(function(card) {
     card.hidden = false
   })
@@ -49,7 +31,10 @@ function showAllCards() {
 
 const formButton = document.getElementById('form-button')
 formButton.addEventListener('click', () => {
+  //Proper Declaration of an object: within the curly brackets is an object (this is a proper declaration of an object.)
   const newCharacter = {
+    //key-value-pairs: name is key, and the result of that is the value.
+    //method accessing dot notation
     name: document.getElementById('name-field').value,
     image: {
       small_url: document.getElementById('url-field').value
@@ -59,12 +44,13 @@ formButton.addEventListener('click', () => {
   showAllCards()
   displayCharacter(newCharacter)
 })
-
+//proper use of variables with proper scope. (recreated everytime the function is called)
+//also an arrow function
 const displayCharacter = character => {
-  let name = document.createElement('h4')
-  let description = document.createElement('p')
-  let pic = document.createElement('img')
-  let characterDiv = document.createElement('div')
+  const name = document.createElement('h4')
+  const description = document.createElement('p')
+  const pic = document.createElement('img')
+  const characterDiv = document.createElement('div')
   const characterOverview = document.createElement('div')
   const characterDetails = document.createElement('div')
 
@@ -91,24 +77,12 @@ const displayCharacter = character => {
     characterDiv.classList.toggle('is-flipped')
   })
 
-  // <div class="face_card face_card--front"></div>
-  // <div class="face_card face_card--back"></div>
   mainArea.appendChild(characterDiv)
 }
 
-// const cardsContainer = document.querySelector('.cards-all')
+
 function populateDOM(charArray) {
   charArray.forEach((char) => displayCharacter(char))
 }
-
-// function getCharNumber(charURL) {
-//   let end = charURL.lastIndexOf('/')
-//   let charID = charURL.substring(end - 2, end)
-//   if (charID.indexOf('/') !== -1) {
-//     return charID.slice(1, 2)
-//   } else {
-//     return charID
-//   }
-// }
 
 populateDOM(comicCharacters)

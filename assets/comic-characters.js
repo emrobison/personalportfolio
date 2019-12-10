@@ -1,3 +1,4 @@
+//exporting an array of objects - use of export statement.
 export const comicCharacters = [
   {
     "aliases": "Garth Ranzz\nLightning Boy\nProty\nLive Wire\nStarfinger\nLightning Man",
